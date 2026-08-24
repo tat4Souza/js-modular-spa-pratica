@@ -8,6 +8,9 @@
 @import url("base/utils.css");
 @import url("base/svg-configs.css");
 
+/* Componentes */
+@import url("components/menuCard.css");
+
 /* Layouts */
 @import url("layout/layout.css");
 @import url("layout/header.css");

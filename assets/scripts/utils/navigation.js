@@ -46,6 +46,23 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  function updateActiveNavLink(currentPath) {
+    const navLinks = document.querySelectorAll("#dynamicMenu a[data-link]");
+
+    navLinks.forEach((link) => {
+      let hrefPath = link.getAttribute("href");
+      if (BASE_PATH && hrefPath.startsWith(BASE_PATH)) {
+        hrefPath = hrefPath.slice(BASE_PATH.length) || "/";
+      }
+
+      if (hrefPath === currentPath) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+  }
+
   async function router() {
     const urlParams = new URLSearchParams(window.location.search);
     const redirectPath = urlParams.get("p");
@@ -55,6 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
     if (!redirectPath && BASE_PATH && currentPath.startsWith(BASE_PATH)) {
       currentPath = currentPath.slice(BASE_PATH.length) || "/";
     }
+
+    updateActiveNavLink(currentPath);
 
     const route = routes[currentPath] || routes["/"];
 
