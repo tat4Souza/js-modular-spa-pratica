@@ -37,10 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
   async function loadHtml(fileName) {
     try {
-      const res = await fetch(`./pages/${fileName}.html`);
+      const res = await fetch(`${BASE_PATH}/assets/pages/${fileName}.html`);
       if (!res.ok) throw new Error("Página não encontrada");
       return await res.text();
     } catch (err) {
+      console.log(err);
       return `<h2>Exercício não encontrado...</h2>`;
     }
   }
