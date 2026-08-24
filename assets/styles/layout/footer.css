@@ -1,6 +1,9 @@
 .footer {
   text-align: center;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 
   padding: 1rem;
+
+  /* Dark Theme */
+  color: var(--off-white-100);
 }

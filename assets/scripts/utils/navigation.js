@@ -18,16 +18,16 @@ document.addEventListener("DOMContentLoaded", () => {
     "/exercicio-6": { file: "exercicioSeis" },
   };
 
+  let index = 1;
   for (let path in routes) {
     if (routes[path].file === null) continue;
     const menuLink = document.createElement("li");
-    const formattedText = path
-      .replace("/", "")
-      .replace("-", "")
-      .replace("io", "io ");
+    const formattedText = `${index} º`;
 
     menuLink.innerHTML = `<a href="${BASE_PATH}${path}" data-link>${formattedText}</a>`;
     dynamicMenu.appendChild(menuLink);
+
+    index++;
   }
 
   const homeLink = document.querySelector(".header__title a");
@@ -59,7 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const route = routes[currentPath] || routes["/"];
 
     if (!route.file) {
-      mainContent.innerHTML = "<h2>Selecione um exercício</h2>";
+      mainContent.innerHTML = await loadHtml("homePage");
       return;
     }
 

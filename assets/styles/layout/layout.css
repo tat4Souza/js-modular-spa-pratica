@@ -1,0 +1,32 @@
+.theme {
+  position: absolute;
+  top: 1rem;
+  right: 2rem;
+  max-height: 6rem;
+  max-width: 6rem;
+
+  background-color: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3ms ease;
+}
+
+.theme:hover {
+  transform: scale(0.95);
+}
+
+.theme__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.title__dark {
+  color: var(--red-light);
+  font-size: 3.6rem;
+}
+
+.menu__container {
+  height: 60vh;
+}
