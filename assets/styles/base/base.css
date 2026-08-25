@@ -8,6 +8,10 @@
 
 html {
   font-size: 62.5%;
+
+  @media screen and (max-width: 84.37em) {
+    font-size: 56.2%;
+  }
 }
 
 body {
@@ -19,6 +23,7 @@ body {
   flex-direction: column;
   align-items: center;
 
+  width: 100%;
   height: 100vh;
   position: relative;
 
@@ -41,6 +46,22 @@ body {
   width: 65%;
   display: flex;
   flex-direction: column;
+
+  @media screen and (max-width: 84.37em) {
+    width: 75%;
+  }
+
+  @media screen and (max-width: 75em) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 62.5em) {
+    width: 90%;
+  }
+
+  @media screen and (max-width: 40.6em) {
+    width: 100%;
+  }
 }
 
 .main-content__container {

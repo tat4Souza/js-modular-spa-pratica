@@ -24,6 +24,30 @@
   /* Dark Theme Styles */
   background-color: var(--black-50);
   font-family: "Sekuya", system-ui;
+
+  @media screen and (max-width: 75em) {
+    width: 50%;
+  }
+
+  @media screen and (max-width: 62.5em) {
+    width: 60%;
+  }
+
+  @media screen and (max-width: 52em) {
+    width: 80%;
+  }
+
+  @media screen and (max-width: 40.6em) {
+    flex-direction: column;
+    width: 80%;
+    gap: 2rem;
+    padding-bottom: 2rem;
+    margin-top: 6rem;
+  }
+
+  @media screen and (max-width: 23.12em) {
+    width: 100%;
+  }
 }
 
 .header__title {

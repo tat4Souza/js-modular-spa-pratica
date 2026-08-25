@@ -7,6 +7,10 @@
   line-height: 0;
   transform: rotate(180deg);
   z-index: -1;
+
+  @media screen and (max-width: 40.6em) {
+    top: 15rem;
+  }
 }
 
 .custom-shape-divider-top-1787582337 svg {
@@ -14,6 +18,21 @@
   display: block;
   width: calc(100% + 1.3px);
   height: 500px;
+
+  @media screen and (max-width: 75em) {
+    width: 120%;
+    left: 50%;
+
+    transform: translateX(-50%);
+  }
+
+  @media screen and (max-width: 40.6em) {
+    width: 140%;
+  }
+
+  @media screen and (max-width: 29em) {
+    width: 180%;
+  }
 }
 
 .custom-shape-divider-top-1787582337 .shape-fill {
