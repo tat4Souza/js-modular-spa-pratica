@@ -10,6 +10,7 @@
 
 /* Componentes */
 @import url("components/menuCard.css");
+@import url("components/inputs.css");
 
 /* Layouts */
 @import url("layout/layout.css");

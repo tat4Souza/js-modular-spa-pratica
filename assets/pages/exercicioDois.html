@@ -1,84 +1,55 @@
 <div class="main-content__container">
-  <h1>
-    Sistema Avançado de Folha de Pagamento com Bônus de Desempenho e Relatório
-    Mensal
-  </h1>
-
   <section class="ex__container" id="sectionForms">
-    <div class="form__container" id="settingsFormContainer">
-      <p>Para prosseguir aos pedidos, insira o valor do salário mínimo:</p>
-      <form>
-        <custom-input
-          name="minWage"
-          type="number"
-          title="Salário Mínimo"
-        ></custom-input>
+    <custom-setting-form
+      title="Segundo"
+      desc="Uma rede hoteleira deseja aprimorar ainda mais sua folha de pagamento mensal, incluindo agora bônus por desempenho baseado em avaliações internas. <br> (*) Preencha as informações para continuar."
+    >
+      <custom-input
+        name="minWage"
+        type="number"
+        title="Salário Mínimo"
+      ></custom-input>
+    </custom-setting-form>
 
-        <label
-          id="formMessageSetting"
-          class="hideComponent form-message"
-        ></label>
+    <custom-registration-form image="icon-star-group-2" combo="true">
+      <custom-input
+        name="emp-id"
+        title="Código do Funcionário"
+        type="text"
+      ></custom-input>
 
-        <button type="submit" class="form__btn">Prosseguir</button>
-      </form>
-    </div>
+      <custom-input
+        name="emp-hours"
+        title="Horas trabalhadas"
+        type="text"
+      ></custom-input>
 
-    <div class="form__container hideComponent" id="registrationFormContainer">
-      <div class="form__header">
-        <p>
-          Preencha as informações dos funcionários e, quando estiver pronto,
-          clique no botão ao lado:
-        </p>
-        <button class="form__btn" id="btnFinishForm">Gerar relatório</button>
-      </div>
+      <custom-input
+        name="emp-cat"
+        title="Categoria"
+        type="select"
+        options="Funcionário Operacional, Gerente"
+      ></custom-input>
 
-      <form id="registrationForm">
-        <custom-input
-          name="emp-id"
-          title="Código do Funcionário"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="emp-shift"
+        title="Turno"
+        type="select"
+        options="Matutino, Vespertino, Noturno"
+      ></custom-input>
 
-        <custom-input
-          name="emp-hours"
-          title="Horas trabalhadas no mês"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="emp-perf"
+        title="Desempenho mensal"
+        type="text"
+      ></custom-input>
 
-        <custom-input
-          name="emp-cat"
-          title="Categoria"
-          type="select"
-          options="Funcionário Operacional, Gerente"
-        ></custom-input>
-
-        <custom-input
-          name="emp-shift"
-          title="Turno"
-          type="select"
-          options="Matutino, Vespertino, Noturno"
-        ></custom-input>
-
-        <custom-input
-          name="emp-perf"
-          title="Avaliação de desempenho mensal"
-          type="text"
-        ></custom-input>
-
-        <custom-input
-          name="emp-food"
-          title="Auxílio alimentação"
-          type="number"
-        ></custom-input>
-
-        <label
-          id="formMessageRegistration"
-          class="hideComponent form-message"
-        ></label>
-
-        <button type="submit" class="form__btn">Prosseguir</button>
-      </form>
-    </div>
+      <custom-input
+        name="emp-food"
+        title="Auxílio alimentação"
+        type="number"
+      ></custom-input>
+    </custom-registration-form>
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">

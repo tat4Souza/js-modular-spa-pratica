@@ -1,32 +1,58 @@
 <div class="main-content__container">
-  <h1>Sistema de Vendas com Comissões, Metas e Performance</h1>
-
   <section class="ex__container" id="sectionForms">
-    <div class="form__container" id="settingsFormContainer">
-      <p>Para prosseguir aos treinos, insira as informações abaixo:</p>
-      <form>
-        <custom-input
-          name="monthly-goal"
-          title="Carga máxima semanal recomendada"
-          type="text"
-        ></custom-input>
+    <custom-setting-form
+      title="Sexto"
+      desc="Uma rede de lojas quer controlar as vendas dos seus vendedores, com comissões e análise de metas. <br> (*) Preencha as informações para continuar."
+    >
+      <custom-input
+        name="monthly-goal"
+        title="Meta mensal de vendas"
+        type="text"
+      ></custom-input>
 
-        <custom-input
-          name="base-comission"
-          title="Carga máxima semanal recomendada"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="base-comission"
+        title="Precentual base de comissão"
+        type="text"
+      ></custom-input>
+    </custom-setting-form>
 
-        <label
-          id="formMessageSetting"
-          class="hideComponent form-message"
-        ></label>
+    <custom-registration-form image="icon-star-group-6" combo="true">
+      <custom-input
+        name="sale-id"
+        title="Código de venda"
+        type="text"
+      ></custom-input>
 
-        <button type="submit" class="form__btn">Prosseguir</button>
-      </form>
-    </div>
+      <custom-input
+        name="sale-seller-id"
+        title="Código do vendedor"
+        type="text"
+      ></custom-input>
 
-    <div class="form__container hideComponent" id="registrationFormContainer">
+      <custom-input
+        name="sale-reg"
+        title="Região da loja"
+        type="select"
+        options="Norte, Nordeste, Sudeste, Sul"
+      ></custom-input>
+
+      <custom-input
+        name="sale-value"
+        title="Valor da venda"
+        type="text"
+      ></custom-input>
+
+      <custom-input
+        name="sale-client-type"
+        title="Tipo de cliente"
+        type="select"
+        options="Pessoa Física, Pessoa Jurídica"
+        full="true"
+      ></custom-input>
+    </custom-registration-form>
+
+    <!-- <div class="form__container hideComponent" id="registrationFormContainer">
       <div class="form__header">
         <p>
           Preencha as informações dos pedidos e, quando estiver pronto, clique
@@ -65,6 +91,7 @@
           title="Tipo de cliente"
           type="select"
           options="Pessoa Física, Pessoa Jurídica"
+          full="true"
         ></custom-input>
 
         <label
@@ -74,7 +101,7 @@
 
         <button type="submit" class="form__btn">Enviar</button>
       </form>
-    </div>
+    </div> -->
   </section>
   <section class="hideComponent section-reports" id="sectionReports">
     <h2>Relatório</h2>

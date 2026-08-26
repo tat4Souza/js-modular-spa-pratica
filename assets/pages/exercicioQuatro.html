@@ -1,86 +1,61 @@
 <div class="main-content__container">
-  <h1>Sistema de Reservas de Hotel com Tarifas Dinâmicas</h1>
-
   <section class="ex__container" id="sectionForms">
-    <div class="form__container" id="settingsFormContainer">
-      <p>Para prosseguir às reservas, insira as informações abaixo:</p>
-      <form>
-        <custom-input
-          name="daily-rate"
-          title="Valor base da diária"
-          type="text"
-        ></custom-input>
+    <custom-setting-form
+      title="Quarto"
+      desc="Uma rede hoteleira quer controlar reservas usando tarifação dinâmica por tipo de quarto e temporada. <br> (*) Preencha as informações para continuar."
+    >
+      <custom-input
+        name="daily-rate"
+        title="Valor base da diária"
+        type="text"
+      ></custom-input>
 
-        <custom-input
-          name="breakfast"
-          title="Valor base do café da manhã"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="breakfast"
+        title="Valor base do café da manhã"
+        type="text"
+      ></custom-input>
+    </custom-setting-form>
 
-        <label
-          id="formMessageSetting"
-          class="hideComponent form-message"
-        ></label>
+    <custom-registration-form image="icon-star-group-4" combo="true">
+      <custom-input
+        name="res-id"
+        title="Código de reserva"
+        type="text"
+      ></custom-input>
 
-        <button type="submit" class="form__btn">Prosseguir</button>
-      </form>
-    </div>
+      <custom-input
+        name="res-type"
+        title="Tipo de quarto"
+        type="select"
+        options="Standard, Luxo, Premium"
+      ></custom-input>
 
-    <div class="form__container hideComponent" id="registrationFormContainer">
-      <div class="form__header">
-        <p>
-          Preencha as informações dos pedidos e, quando estiver pronto, clique
-          no botão ao lado:
-        </p>
-        <button class="form__btn" id="btnFinishForm">Gerar relatório</button>
-      </div>
-      <form id="registrationForm">
-        <custom-input
-          name="res-id"
-          title="Código de reserva"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="res-season"
+        title="Temporada"
+        type="select"
+        options="Baixa, Alta, Feriado"
+      ></custom-input>
 
-        <custom-input
-          name="res-type"
-          title="Tipo de quarto"
-          type="select"
-          options="Standard, Luxo, Premium"
-        ></custom-input>
+      <custom-input
+        name="res-daily"
+        title="Quantidade de diárias"
+        type="number"
+      ></custom-input>
 
-        <custom-input
-          name="res-season"
-          title="Temporada"
-          type="select"
-          options="Baixa, Alta, Feriado"
-        ></custom-input>
+      <custom-input
+        name="res-guests"
+        title="Número de hóspedes"
+        type="number"
+      ></custom-input>
 
-        <custom-input
-          name="res-daily"
-          title="Quantidade de diárias"
-          type="number"
-        ></custom-input>
-
-        <custom-input
-          name="res-guests"
-          title="Número de hóspedes"
-          type="number"
-        ></custom-input>
-
-        <custom-input
-          name="res-break"
-          title="Café da manhã"
-          type="checkbox"
-        ></custom-input>
-
-        <label
-          id="formMessageRegistration"
-          class="hideComponent form-message"
-        ></label>
-
-        <button type="submit" class="form__btn">Enviar</button>
-      </form>
-    </div>
+      <custom-input
+        name="res-break"
+        title="Café da manhã"
+        type="checkbox"
+      ></custom-input>
+    </custom-registration-form>
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">

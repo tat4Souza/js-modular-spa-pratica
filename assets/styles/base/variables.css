@@ -12,4 +12,8 @@
   --black-100: #1e1717;
 
   /* SPACING */
+
+  /* FONTS */
+  --font-sekuya: "Sekuya", system ui;
+  --font-uncial: "Uncial Antiqua", system ui;
 }

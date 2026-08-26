@@ -1,73 +1,49 @@
 <div class="main-content__container">
-  <h1>Frete com múltiplos pedidos e relatório final</h1>
-
   <section class="ex__container" id="sectionForms">
-    <div class="form__container" id="settingsFormContainer">
-      <p>Para prosseguir aos pedidos, insira as informações abaixo:</p>
-      <form>
-        <custom-input
-          name="gas"
-          title="Valor do combustível por Litro"
-          type="number"
-        ></custom-input>
+    <custom-setting-form
+      title="Primeiro"
+      desc="Uma empresa metalmecânica precisa automatizar ainda mais o cálculo do frete para melhorar sua logística. <br> (*) Preencha as informações para continuar."
+    >
+      <custom-input
+        name="gas"
+        title="Valor do combustível por Litro"
+        type="number"
+      ></custom-input>
+    </custom-setting-form>
 
-        <label
-          id="formMessageSetting"
-          class="hideComponent form-message"
-        ></label>
+    <custom-registration-form image="icon-star" combo="true">
+      <custom-input
+        name="ord-id"
+        title="Código do pedido"
+        type="text"
+      ></custom-input>
 
-        <button type="submit" class="form__btn">Prosseguir</button>
-      </form>
-    </div>
+      <custom-input
+        name="ord-region"
+        title="Região"
+        type="select"
+        options="Sudeste (R$ 1.20 por peça), Sul (R$ 1.30 por peça), Centro-Oeste (R$ 1.50 por peça)"
+      ></custom-input>
 
-    <div class="form__container hideComponent" id="registrationFormContainer">
-      <div class="form__header">
-        <p>
-          Preencha as informações dos pedidos e, quando estiver pronto, clique
-          no botão ao lado:
-        </p>
-        <button class="form__btn" id="btnFinishForm">Gerar relatório</button>
-      </div>
-      <form id="registrationForm">
-        <custom-input
-          name="ord-id"
-          title="Código do pedido"
-          type="text"
-        ></custom-input>
+      <custom-input
+        name="ord-distance"
+        title="Distância (em km)"
+        type="number"
+      ></custom-input>
 
-        <custom-input
-          name="ord-region"
-          title="Região"
-          type="select"
-          options="Sudeste (R$ 1.20 por peça), Sul (R$ 1.30 por peça), Centro-Oeste (R$ 1.50 por peça)"
-        ></custom-input>
+      <custom-input
+        name="ord-qtd-parts"
+        title="Quantidade de peças"
+        type="number"
+      ></custom-input>
 
-        <custom-input
-          name="ord-distance"
-          title="Distância (em km)"
-          type="number"
-        ></custom-input>
-
-        <custom-input
-          name="ord-qtd-parts"
-          title="Quantidade de peças"
-          type="number"
-        ></custom-input>
-
-        <custom-input
-          name="ord-tracking"
-          title="Rastreamento (R$ 200)"
-          type="checkbox"
-        ></custom-input>
-
-        <label
-          id="formMessageRegistration"
-          class="hideComponent form-message"
-        ></label>
-
-        <button type="submit" class="form__btn">Enviar</button>
-      </form>
-    </div>
+      <custom-input
+        name="ord-tracking"
+        title="Rastreamento (R$ 200)"
+        type="checkbox"
+        full="true"
+      ></custom-input>
+    </custom-registration-form>
   </section>
 
   <section id="sectionReports" class="hideComponent section-reports">

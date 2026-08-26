@@ -4,6 +4,7 @@ export class CustomInput extends HTMLElement {
     const title = this.getAttribute("title") || "";
     const type = this.getAttribute("type") || "text";
     const options = this.getAttribute("options") || "";
+    const full = this.getAttribute("full") || false;
     const optionsList = options
       ? options.split(",").map((opt) => opt.trim())
       : [];
@@ -11,34 +12,43 @@ export class CustomInput extends HTMLElement {
     const renderInputField = () => {
       switch (type) {
         case "number":
-          return `<input type="number" id="${inputId}" placeholder="${title}" />`;
+          return `<input type="number" autocomplete="off" id="${inputId}" placeholder="${title}" />`;
         case "select":
           const optionsHTML = optionsList
-            .map((opt, i) => `<option value="opt${i + 1}">${opt}</option>`)
+            .map(
+              (opt, i) =>
+                `<option value="opt${i + 1}"><span>${opt}</span></option>`,
+            )
             .join("");
           return `
             <select name="${inputId}" id="${inputId}">
-              <option value="" disabled selected>Selecione uma opção</option>
+              
+              <option value="" disabled selected><span>Selecione uma opção</span></option>
               ${optionsHTML}
             </select>
           `;
         case "checkbox":
-          return `<input type="checkbox" role="switch" id="${inputId}" />`;
+          return `
+            <input type="checkbox" role="switch" id="${inputId}" />
+            <label for="${inputId}" class="switch__button"></label>
+          `;
         case "text":
         default:
-          return `<input type="text" id="${inputId}" placeholder="${title}" />`;
+          return `<input type="text" autocomplete="off" id="${inputId}" placeholder="${title}" />`;
       }
     };
 
     this.classList.add("form__input-label");
+    if (full === "true") {
+      this.classList.add("form__input-label--full");
+    }
+
     if (type == "checkbox") {
       this.classList.add("form__input-label--switch");
     }
     this.innerHTML = `
-      
           <label for="${inputId}">${title}:</label>
           ${renderInputField()}
-     
     `;
   }
 }
