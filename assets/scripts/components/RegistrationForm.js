@@ -15,7 +15,7 @@ export class CustomFormRegistration extends HTMLElement {
                 Gerar
                 </button>
                 <figure class="form__stars">
-                <img src="/assets/img/${image}.png" alt="Decoração de Exercício" />
+                <img src="./assets/img/${image}.png" alt="Decoração de Exercício" />
                 </figure>
             </div>
             <div class="form__content">
