@@ -53,28 +53,21 @@
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">
-    <h2>Relatório:</h2>
-    <ul>
-      <li>
-        Quantidade total de funcionários cadastrados:
-        <span id="rep-total"></span>
-      </li>
-      <li>
-        Média salarial geral dos funcionários cadastrados:
-        <div id="rep-avg"></div>
-      </li>
-      <li>
-        Funcionário mais pago:
-        <div id="rep-high"></div>
-      </li>
-      <li>
-        Funcionário menos pago:
-        <div id="rep-low"></div>
-      </li>
-      <li>
-        Quantidade de funcionários que receberam cada faixa de bônus:
-        <div id="rep-bonus"></div>
-      </li>
-    </ul>
+    <custom-report-container title="Segundo">
+      <div class="ancorComponent" id="rep-avg"></div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>mais pago:</h4>
+        <div id="rep-high" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>menos pago:</h4>
+        <div id="rep-low" class="ancorComponent"></div>
+      </div>
+
+      <h5 class="report__title">Funcionários em cada faixa de bônus:</h5>
+      <div class="ancorComponent" id="rep-bonus"></div>
+    </custom-report-container>
   </section>
 </div>

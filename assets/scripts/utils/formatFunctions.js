@@ -22,8 +22,8 @@ export function formatProductInfo(products) {
   return products
     .map(
       (item) => `
-        <div>
-          <p><strong>Código:</strong> ${item.id}</p>
+        <div class="report__grid report__grid--full report__grid--full--col">
+          <h4>Pedido ${item.id}</h4>
           <p><strong>Estoque final:</strong> ${item.totalStock}</p>
           <p><strong>Valor investido:</strong> ${formatPrice(item.totalValue)}</p>
         </div>`,

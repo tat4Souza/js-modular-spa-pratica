@@ -59,41 +59,49 @@
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">
-    <ul>
-      <li>Total de reservas cadastradas <span id="rep-total"></span></li>
-      <li>Valor médio por reserva <span id="rep-avg"></span></li>
-      <li>
-        Valor total por tipo de quarto:
-        <div id="rep-total-type"></div>
-      </li>
-      <li>
-        Valor total por temporada:
-        <div id="rep-total-season"></div>
-      </li>
-      <li>
-        Reserva mais cara:
-        <div id="rep-expensive"></div>
-      </li>
-      <li>
-        Reserva mais barata:
-        <div id="rep-cheap"></div>
-      </li>
-      <li>
-        Quantidade de reservas com café incluso
-        <span id="rep-breakfast-w"></span>
-      </li>
-      <li>
-        Quantidade de reservas sem café incluso
-        <span id="rep-breakfast-wo"></span>
-      </li>
-      <li>
-        Ocupação total:
-        <span id="rep-ocupation"></span>
-      </li>
-      <li>
-        Valor médio por hóspede:
-        <span id="rep-avg-guest"></span>
-      </li>
-    </ul>
+    <custom-report-container title="Quarto">
+      <h5 class="report__title">Total por tipo de quarto:</h5>
+      <div class="ancorComponent" id="rep-total-type"></div>
+
+      <h5 class="report__title">Total por temporada:</h5>
+      <div class="ancorComponent" id="rep-total-season"></div>
+
+      <h5 class="report__title">Informações das reservas:</h5>
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>maior custo:</h4>
+        <div id="rep-expensive" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>menor custo:</h4>
+        <div id="rep-cheap" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid">
+        <h4><span>R$</span><label id="rep-avg"></label></h4>
+        <span>Média por reserva</span>
+      </div>
+
+      <div class="report__grid">
+        <h4><span>R$</span><label id="rep-avg-guest"></label></h4>
+        <span>Média por hóspede</span>
+      </div>
+
+      <div class="report__grid">
+        <h4><span id="rep-ocupation">$</span></h4>
+        <span>Valor de Ocupação</span>
+      </div>
+
+      <h5 class="report__title">Reservas com e sem café da manhã:</h5>
+      <div class="report__grid report__grid--half">
+        <h4><span id="rep-breakfast-w">$</span></h4>
+        <span>Incluso</span>
+      </div>
+
+      <div class="report__grid report__grid--half">
+        <h4><span id="rep-breakfast-wo">$</span></h4>
+        <span>Não incluso</span>
+      </div>
+    </custom-report-container>
   </section>
 </div>

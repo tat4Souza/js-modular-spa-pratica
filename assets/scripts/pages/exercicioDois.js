@@ -138,7 +138,24 @@ const renderProperties = [
   {
     htmlId: "rep-avg",
     data: (rep) => rep.mediumWages,
-    formatFunc: formatEmployeesAvg,
+    formatFunc: (mw) => {
+      const labels = [
+        { key: "avg", title: "Média geral" },
+        { key: "avgEmp", title: "Média Funcionários" },
+        { key: "avgMan", title: "Média Gerentes" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid">
+            <h4> <span>R$</span> ${mw[key].toFixed(2) ?? 0} </h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-high",
@@ -153,6 +170,24 @@ const renderProperties = [
   {
     htmlId: "rep-bonus",
     data: (rep) => rep.bonus,
-    formatFunc: formatEmployeesBonus,
+    formatFunc: (b) => {
+      const labels = [
+        { key: "bonus10", title: "Bônus 10" },
+        { key: "bonus5", title: "Bônus 5" },
+        { key: "bonus2", title: "Bônus 2" },
+        { key: "bonus0", title: "Bônus 0" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid report__grid--full">
+            <h4>${title}:</h4>
+            <span class="report__total">${b[key]}</span>
+          </div>
+        `,
+        )
+        .join("");
+    },
   },
 ];

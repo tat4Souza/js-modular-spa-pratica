@@ -82,7 +82,7 @@ function generateReport(list) {
       list.filter((p) => p.prodType === "opt1"),
       "finalStock",
     ),
-    premiuim: sumBy(
+    premium: sumBy(
       list.filter((p) => p.prodType === "opt2"),
       "finalStock",
     ),
@@ -121,9 +121,30 @@ const renderProperties = [
   {
     htmlId: "rep-final-stock",
     data: (rep) => rep.stockByType,
-    formatFunc: formatByStock,
+    formatFunc: (sbt) => {
+      const labels = [
+        { key: "standard", title: "Padrão" },
+        { key: "premium", title: "Premium" },
+        { key: "custom", title: "Sob Encomenda" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid">
+            <h4>${sbt[key]}</h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
-  { htmlId: "rep-avg", data: "mediumPerOrder", formatFunc: formatPrice },
+  {
+    htmlId: "rep-avg",
+    data: "mediumPerOrder",
+    formatFunc: (mpo) => mpo.toFixed(2),
+  },
   {
     htmlId: "rep-high",
     data: (rep) => rep.highestOrder,
@@ -134,11 +155,35 @@ const renderProperties = [
     data: (rep) => rep.lowestOrder,
     formatFunc: formatStockExtreme,
   },
-  { htmlId: "rep-alerts", data: (rep) => rep.alerts, formatFunc: formatAlerts },
+  {
+    htmlId: "rep-alerts",
+    data: (rep) => rep.alerts,
+    formatFunc: (a) => {
+      const labels = [
+        { key: "high", title: "Alto" },
+        { key: "critic", title: "Crítico" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid report__grid--half">
+            <h4>${a[key]}</h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
+  },
   {
     htmlId: "rep-prod-info",
     data: (rep) => rep.productsList,
     formatFunc: formatProductInfo,
   },
-  { htmlId: "rep-invested", data: "investedValue", formatFunc: formatPrice },
+  {
+    htmlId: "rep-invested",
+    data: "investedValue",
+    formatFunc: (i) => i.toFixed(2),
+  },
 ];

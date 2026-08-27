@@ -116,16 +116,59 @@ function generateReport(list) {
 
 const renderProperties = [
   { htmlId: "rep-total", data: "total" },
-  { htmlId: "rep-avg", data: "mediumPerRes", formatFunc: formatPrice },
+  {
+    htmlId: "rep-avg",
+    data: "mediumPerRes",
+    formatFunc: (mpr) => mpr.toFixed(2),
+  },
+  {
+    htmlId: "rep-avg-guest",
+    data: "mediumPerGuest",
+    formatFunc: (mpg) => mpg.toFixed(2),
+  },
   {
     htmlId: "rep-total-type",
     data: (rep) => rep.totalByRoom,
-    formatFunc: formatResRoom,
+    formatFunc: (tbr) => {
+      const labels = [
+        { key: "standard", title: "Standard" },
+        { key: "luxury", title: "Luxo" },
+        { key: "premium", title: "Premium" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid">
+            <h4><span>R$</span>${tbr[key]}</h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-total-season",
     data: (rep) => rep.totalBySeason,
-    formatFunc: formatResSeason,
+    formatFunc: (tbs) => {
+      const labels = [
+        { key: "low", title: "Baixa" },
+        { key: "high", title: "Alta" },
+        { key: "holiday", title: "Feriado" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid">
+            <h4><span>R$</span>${tbs[key]}</h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-expensive",
@@ -140,5 +183,4 @@ const renderProperties = [
   { htmlId: "rep-breakfast-w", data: "hasBreakfast" },
   { htmlId: "rep-breakfast-wo", data: "noBreakfast" },
   { htmlId: "rep-ocupation", data: "ocupation" },
-  { htmlId: "rep-avg-guest", data: "mediumPerGuest", formatFunc: formatPrice },
 ];

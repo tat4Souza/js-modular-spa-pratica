@@ -41,31 +41,36 @@
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">
-    <h2>Relatório</h2>
-    <ul>
-      <li>Total de ordens registradas: <span id="rep-total"></span></li>
-      <li>
-        Estoque final dos produtos:
-        <div id="rep-final-stock"></div>
-      </li>
-      <li>Média de custo total: <span id="rep-avg"></span></li>
-      <li>
-        Ordem com maior custo:
-        <div id="rep-high"></div>
-      </li>
-      <li>
-        Ordem com menor custo:
-        <div id="rep-low"></div>
-      </li>
-      <li>
-        Alertas:
-        <div id="rep-alerts"></div>
-      </li>
-      <li>
-        Informações dos produtos:
-        <div id="rep-prod-info"></div>
-      </li>
-      <li>Valor total investido: <span id="rep-invested"></span></li>
-    </ul>
+    <custom-report-container title="Terceiro">
+      <h5 class="report__title">Estoque final por tipo de produto:</h5>
+      <div class="ancorComponent" id="rep-final-stock"></div>
+
+      <h5 class="report__title">Informações dos pedidos:</h5>
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>maior custo:</h4>
+        <div id="rep-high" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>menor custo:</h4>
+        <div id="rep-low" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--half">
+        <h4><span>R$</span><label id="rep-invested"></label></h4>
+        <span>Total investido</span>
+      </div>
+
+      <div class="report__grid report__grid--half">
+        <h4><span>R$</span><label id="rep-avg"></label></h4>
+        <span>Média custo total</span>
+      </div>
+
+      <h5 class="report__title">Alertas de estoque:</h5>
+      <div class="ancorComponent" id="rep-alerts"></div>
+
+      <h5 class="report__title">Informações dos produtos:</h5>
+      <div class="ancorComponent" id="rep-prod-info"></div>
+    </custom-report-container>
   </section>
 </div>

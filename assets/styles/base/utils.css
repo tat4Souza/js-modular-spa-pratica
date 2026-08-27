@@ -1,7 +1,11 @@
 .hideComponent {
-    display: none !important;
+  display: none !important;
 }
 
 .viewComponent {
-    display: flex !important;
+  display: flex !important;
+}
+
+.ancorComponent {
+  display: contents;
 }
