@@ -1,21 +1,3 @@
-/* select {
-  appearance: none;
-  font: "Prompt";
-  width: 100%;
-  padding: 1rem;
-  border: none;
-  background-color: #222;
-  line-height: 1.6;
-
-  &:open {
-    background-color: #444;
-  }
-
-  &:option {
-    background-color: #444;
-  }
-} */
-
 select {
   width: 100%;
   font-family: "Prompt";

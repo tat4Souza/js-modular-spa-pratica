@@ -47,22 +47,40 @@
   </section>
 
   <section id="sectionReports" class="hideComponent section-reports">
-    <h2>Relatório</h2>
-    <ul>
-      <li>Número total de pedidos realizados: <span id="rep-total"></span></li>
-      <li>Valor médio pago por pedido: <span id="rep-order-avg"></span></li>
-      <li>
-        Valor por região:
-        <div id="rep-reg"></div>
-      </li>
-      <li>
-        Pedido mais caro:
-        <div id="rep-exp"></div>
-      </li>
-      <li>
-        Pedido mais barato:
-        <div id="rep-cheap"></div>
-      </li>
-    </ul>
+    <div class="form__container report__container">
+      <div class="form__header report__header">
+        <figure class="form__img-container">
+          <img src="./assets/img/upper-bite.png" alt="Mordida Cima" />
+        </figure>
+        <h3>Primero Exercício</h3>
+        <h2 class="form__title">Relatório</h2>
+        <figure class="form__img-container">
+          <img src="./assets/img/lower-bite.png" alt="Mordida Baixo" />
+        </figure>
+      </div>
+
+      <div class="form__content report__content">
+        <div class="report__grid report__grid--full">
+          <h4>Total:</h4>
+          <span class="report__total" id="rep-total"></span>
+        </div>
+        <div class="report__grid">
+          <h4 id="rep-order-avg"><span>R$</span> 50</h4>
+          <span>Média por pedido</span>
+        </div>
+        <div class="report__grid report__grid--half">
+          <h4>Valor por região:</h4>
+          <div id="rep-reg"></div>
+        </div>
+        <div class="report__grid report__grid--full">
+          <h4>mais caro:</h4>
+          <div id="rep-exp"></div>
+        </div>
+        <div class="report__grid report__grid--full">
+          <h4>mais barato:</h4>
+          <div id="rep-cheap"></div>
+        </div>
+      </div>
+    </div>
   </section>
 </div>

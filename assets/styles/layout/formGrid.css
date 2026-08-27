@@ -1,4 +1,5 @@
-.ex__container {
+.ex__container,
+.section-reports {
   margin-top: 2rem;
   min-height: 70vh;
   width: 58%;
@@ -30,7 +31,8 @@
   }
 }
 
-.ex__container:has(#settingsFormContainer) {
+.ex__container:has(#settingsFormContainer),
+.section-reports {
   border-top: 0.8rem solid var(--red-light);
 }
 
@@ -48,7 +50,8 @@
   }
 }
 
-.ex__container:has(#settingsFormContainer) .form__header {
+.ex__container:has(#settingsFormContainer) .form__header,
+.report__header {
   position: relative;
   background-color: transparent;
   display: flex;
