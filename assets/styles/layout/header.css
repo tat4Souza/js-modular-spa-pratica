@@ -54,6 +54,11 @@
   /* Dark Theme Styles */
   font-size: 1.8rem;
   color: var(--red-medium);
+
+  & a:focus {
+    outline: none;
+    border-bottom: 2px solid var(--red-medium);
+  }
 }
 
 .header__nav ul {
@@ -70,6 +75,12 @@
   /* Dark Theme Styles */
   background-color: var(--red-medium);
   color: var(--off-white-100);
+
+  &:focus {
+    outline: 2px solid var(--off-white-100);
+    background-color: var(--off-white-100);
+    color: var(--red-medium);
+  }
 }
 
 .header__nav > ul > li a:hover {

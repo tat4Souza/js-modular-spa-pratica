@@ -29,7 +29,7 @@ export class CustomInput extends HTMLElement {
           `;
         case "checkbox":
           return `
-            <input type="checkbox" role="switch" id="${inputId}" />
+            <input type="checkbox" role="switch" class="switch__input" id="${inputId}" />
             <label for="${inputId}" class="switch__button"></label>
           `;
         case "text":

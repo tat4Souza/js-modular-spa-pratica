@@ -13,6 +13,7 @@ select {
     border-radius: 0.3rem;
     font-size: 1.4rem;
     color: var(--off-white-50);
+    outline: none;
     transition: 0.2s ease;
 
     &:hover {
@@ -23,6 +24,17 @@ select {
     &:focus {
       border-bottom: 0.3rem solid var(--red-light);
     }
+  }
+
+  & option {
+    padding: 0.5rem;
+  }
+
+  & option:focus-visible {
+    outline: none;
+    border-radius: 0.5rem;
+    background-color: var(--off-white-100);
+    color: var(--black-50);
   }
 }
 
@@ -56,15 +68,29 @@ input[type="number"]::-webkit-inner-spin-button {
   }
 }
 
-input:checked + .switch__button {
+.switch__input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+}
+
+.switch__input:focus-visible + .switch__button {
+  outline: 2px solid var(--off-white-100);
+  outline-offset: 2px;
+}
+
+.switch__input:checked + .switch__button {
   background-color: var(--red-light);
 }
 
-input:checked + .switch__button::before {
+.switch__input:checked + .switch__button::before {
   transform: translateX(3.3rem);
   background-color: var(--off-white-100);
-}
-
-input[type="checkbox"] {
-  display: none;
 }

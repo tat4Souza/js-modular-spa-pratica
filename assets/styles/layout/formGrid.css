@@ -223,6 +223,10 @@
   margin-top: 1rem;
 
   transition: 0.3s ease;
+
+  &:focus {
+    background-color: var(--red-light);
+  }
 }
 
 .form__btn:hover {
@@ -240,6 +244,11 @@
 
   @media screen and (max-width: 52em) {
     width: 80%;
+  }
+
+  &:focus {
+    background-color: var(--black-50);
+    color: var(--off-white-100);
   }
 }
 
