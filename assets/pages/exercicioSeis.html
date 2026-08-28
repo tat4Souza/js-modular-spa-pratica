@@ -51,92 +51,39 @@
         full="true"
       ></custom-input>
     </custom-registration-form>
-
-    <!-- <div class="form__container hideComponent" id="registrationFormContainer">
-      <div class="form__header">
-        <p>
-          Preencha as informações dos pedidos e, quando estiver pronto, clique
-          no botão ao lado:
-        </p>
-        <button class="form__btn" id="btnFinishForm">Gerar relatório</button>
-      </div>
-      <form id="registrationForm">
-        <custom-input
-          name="sale-id"
-          title="Código de venda"
-          type="text"
-        ></custom-input>
-
-        <custom-input
-          name="sale-seller-id"
-          title="Código do vendedor"
-          type="text"
-        ></custom-input>
-
-        <custom-input
-          name="sale-reg"
-          title="Região da loja"
-          type="select"
-          options="Norte, Nordeste, Sudeste, Sul"
-        ></custom-input>
-
-        <custom-input
-          name="sale-value"
-          title="Valor da venda"
-          type="text"
-        ></custom-input>
-
-        <custom-input
-          name="sale-client-type"
-          title="Tipo de cliente"
-          type="select"
-          options="Pessoa Física, Pessoa Jurídica"
-          full="true"
-        ></custom-input>
-
-        <label
-          id="formMessageRegistration"
-          class="hideComponent form-message"
-        ></label>
-
-        <button type="submit" class="form__btn">Enviar</button>
-      </form>
-    </div> -->
   </section>
   <section class="hideComponent section-reports" id="sectionReports">
-    <h2>Relatório</h2>
-    <li>
-      <ul>
-        <li>Total de vendas registradas: <span id="rep-total"></span></li>
-        <li>
-          Valor total vendido por região:
-          <div id="rep-total-region"></div>
-        </li>
-        <li>
-          Valor total por tipo de cliente:
-          <div id="rep-total-client"></div>
-        </li>
-        <li>
-          Vendedor com maior valor de vendas:
-          <div id="rep-seller-value"></div>
-        </li>
-        <li>
-          Vendedor com maior comissão total:
-          <div id="rep-seller-comission"></div>
-        </li>
-        <li>
-          Quantidade de vendedores que bateram a meta:
-          <span id="rep-seller-goal"></span>
-        </li>
-        <li>
-          Comissão média geral:
-          <span id="rep-comission-avg"></span>
-        </li>
-        <li>
-          Comissão média por região:
-          <span id="rep-comission-avg-reg"></span>
-        </li>
-      </ul>
-    </li>
+    <custom-report-container title="Sexto">
+      <h5 class="report__title">Total vendido por região:</h5>
+      <div class="ancorComponent" id="rep-total-region"></div>
+
+      <h5 class="report__title">Total por tipo de cliente:</h5>
+      <div class="ancorComponent" id="rep-total-client"></div>
+
+      <h5 class="report__title">Informações sobre os vendedores:</h5>
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>maior valor de vendas:</h4>
+        <div id="rep-seller-value" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>maior valor de comissão:</h4>
+        <div id="rep-seller-comission" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full">
+        <h4>Bateram a meta:</h4>
+        <span class="report__total" id="rep-seller-goal"></span>
+      </div>
+
+      <h5 class="report__title">Informações sobre comissões:</h5>
+      <div class="report__grid report__grid--full">
+        <h4>Média geral</h4>
+        <span class="report__total"
+          >R$ <label id="rep-comission-avg"></label
+        ></span>
+      </div>
+      <div class="ancorComponent" id="rep-comission-avg-reg"></div>
+    </custom-report-container>
   </section>
 </div>

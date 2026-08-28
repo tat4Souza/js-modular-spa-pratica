@@ -150,12 +150,46 @@ const renderProperties = [
   {
     htmlId: "rep-total-region",
     data: (rep) => rep.totalPerRegion,
-    formatFunc: formatPerRegion,
+    formatFunc: (tpr) => {
+      const labels = [
+        { key: "north", title: "Norte" },
+        { key: "northeast", title: "Nordeste" },
+        { key: "southeast", title: "Sudeste" },
+        { key: "south", title: "Sul" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+        <div class="report__grid report__grid--half">
+          <h4><span>R$</span> ${tpr[key]}</h4>
+          <span>${title}</span>
+        </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-total-client",
     data: (rep) => rep.totalPerClient,
-    formatFunc: formatSalesPerClient,
+    formatFunc: (tpc) => {
+      const labels = [
+        { key: "pf", title: "Pessoa Física" },
+        { key: "pj", title: "Pessoa Jurídica" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+        <div class="report__grid report__grid--half">
+          <h4><span>R$</span> ${tpc[key]}</h4>
+          <span>${title}</span>
+        </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-seller-value",
@@ -171,11 +205,28 @@ const renderProperties = [
   {
     htmlId: "rep-comission-avg",
     data: "avgComission",
-    formatFunc: formatPrice,
   },
   {
     htmlId: "rep-comission-avg-reg",
     data: (rep) => rep.avgPerRegion,
-    formatFunc: formatPerRegion,
+    formatFunc: (tpr) => {
+      const labels = [
+        { key: "north", title: "Norte" },
+        { key: "northeast", title: "Nordeste" },
+        { key: "southeast", title: "Sudeste" },
+        { key: "south", title: "Sul" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+        <div class="report__grid report__grid--half">
+          <h4><span>R$</span> ${tpr[key]}</h4>
+          <span>${title}</span>
+        </div>
+      `,
+        )
+        .join("");
+    },
   },
 ];

@@ -57,8 +57,8 @@ export function formatPlayers(players) {
   return players
     .map(
       (p) => `
-        <div>
-          <p><strong>Nome do Jogador:</strong> ${p.name}</p>
+        <div class="report__grid report__grid--full report__grid--full--col">
+          <h4>Jogador ${p.name}</h4>
           <p><strong>Carga Semanal Total:</strong> ${p.totalLoad}</p>
           <p><strong>Quantidade de Treinos:</strong> ${p.totalWorkouts}</p>
         </div>`,

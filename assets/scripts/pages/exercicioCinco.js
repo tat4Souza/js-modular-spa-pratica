@@ -146,11 +146,47 @@ const renderProperties = [
   {
     htmlId: "rep-work-type",
     data: (rep) => rep.statsByType,
-    formatFunc: formatWorkoutType,
+    formatFunc: (sbt) => {
+      const labels = [
+        { key: "phisic", title: "Físico" },
+        { key: "technical", title: "Técnico" },
+        { key: "strategic", title: "Estratégico" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid">
+            <h4>${sbt[key]}</h4>
+            <span>${title}</span>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-pos-info",
     data: (rep) => rep.statsByPosition,
-    formatFunc: formatPosition,
+    formatFunc: (sbp) => {
+      const labels = [
+        { key: "goalkeeper", title: "Goleiro" },
+        { key: "defender", title: "Zagueiro" },
+        { key: "midfielder", title: "Meio-Campo" },
+        { key: "attacker", title: "Atacante" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+          <div class="report__grid report__grid--half">
+            <h4>${title}</h4>
+            <p><strong>Total de treinos: </strong>${sbp[key].total}</p>
+            <p><strong>Carga Média: </strong>${sbp[key].avg}</p>
+          </div>
+      `,
+        )
+        .join("");
+    },
   },
 ];

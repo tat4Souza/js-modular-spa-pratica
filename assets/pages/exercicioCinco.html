@@ -53,32 +53,30 @@
   </section>
 
   <section class="hideComponent section-reports" id="sectionReports">
-    <h2>Relatório</h2>
-    <ul>
-      <li>Total de treinos cadastrados: <span id="rep-total"></span></li>
-      <li>
-        Lista de Jogadores:
-        <div id="rep-players"></div>
-      </li>
-      <li>
-        Jogador com maior carga semanal:
-        <div id="rep-max-load"></div>
-      </li>
-      <li>
-        Jogador com menor carga semanal:
-        <div id="rep-min-load"></div>
-      </li>
-      <li>
-        Quantidade de Jogadores com risco de lesão: <span id="rep-risk"></span>
-      </li>
-      <li>
-        Carga média por tipo de treino:
-        <div id="rep-work-type"></div>
-      </li>
-      <li>
-        Informações por posição:
-        <div id="rep-pos-info"></div>
-      </li>
-    </ul>
+    <custom-report-container title="Quinto">
+      <h5 class="report__title">Informações dos jogadores:</h5>
+      <div class="ancorComponent" id="rep-players"></div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>maior carga semanal:</h4>
+        <div id="rep-max-load" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full report__grid--full--col">
+        <h4>menor carga semanal:</h4>
+        <div id="rep-min-load" class="ancorComponent"></div>
+      </div>
+
+      <div class="report__grid report__grid--full">
+        <h4>Jogadores com risco de lesão:</h4>
+        <span class="report__total" id="rep-risk"></span>
+      </div>
+
+      <h5 class="report__title">Carga média por tipo de treino:</h5>
+      <div class="ancorComponent" id="rep-work-type"></div>
+
+      <h5 class="report__title">Informações por posição:</h5>
+      <div class="ancorComponent" id="rep-pos-info"></div>
+    </custom-report-container>
   </section>
 </div>
