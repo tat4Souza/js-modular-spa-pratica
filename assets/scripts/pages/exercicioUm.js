@@ -99,11 +99,28 @@ function generateReport(list) {
 
 const renderProperties = [
   { htmlId: "rep-total", data: "total" },
-  { htmlId: "rep-order-avg", data: "mediumPerOrder", formatFunc: formatPrice },
+  { htmlId: "rep-order-avg", data: "mediumPerOrder" },
   {
     htmlId: "rep-reg",
     data: (report) => report.totalPerRegion,
-    formatFunc: formatOrdersRegion,
+    formatFunc: (tpr) => {
+      const labels = [
+        { key: "south", title: "Sul" },
+        { key: "southeast", title: "Sudeste" },
+        { key: "midwest", title: "Centro-Oeste" },
+      ];
+
+      return labels
+        .map(
+          ({ key, title }) => `
+        <div class="report__grid report__grid--half">
+          <h4><span>R$</span> ${tpr[key]}</h4>
+          <span>${title}</span>
+        </div>
+      `,
+        )
+        .join("");
+    },
   },
   {
     htmlId: "rep-exp",

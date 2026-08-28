@@ -49,21 +49,18 @@
   <section id="sectionReports" class="hideComponent section-reports">
     <custom-report-container title="Primeiro">
       <div class="report__grid report__grid--half">
-        <h4 id="rep-order-avg"><span>R$</span></h4>
+        <h4><span>R$</span><label id="rep-order-avg"></label></h4>
         <span>Média por pedido</span>
       </div>
 
-      <div class="report__grid report__grid--half">
-        <h4>Valor por região:</h4>
-        <div id="rep-reg"></div>
-      </div>
+      <div class="ancorComponent" id="rep-reg"></div>
 
-      <div class="report__grid report__grid--full">
+      <div class="report__grid report__grid--full report__grid--full--col">
         <h4>mais caro:</h4>
         <div id="rep-exp"></div>
       </div>
 
-      <div class="report__grid report__grid--full">
+      <div class="report__grid report__grid--full report__grid--full--col">
         <h4>mais barato:</h4>
         <div id="rep-cheap"></div>
       </div>
