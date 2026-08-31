@@ -15,7 +15,7 @@ export function formatPriceDecimal(value) {
 }
 
 export function formatReportTotal(total) {
-  return `${total} entrada(s)`;
+  return `${total} Entrada(s) `;
 }
 
 export function formatProductInfo(products) {
@@ -28,8 +28,8 @@ export function formatProductInfo(products) {
       (item) => `
         <div class="report__grid report__grid--full report__grid--full--col">
           <h4>Pedido ${item.id}</h4>
-          <p><strong>Estoque final:</strong> ${item.totalStock}</p>
-          <p><strong>Valor investido:</strong> ${formatPrice(item.totalValue)}</p>
+          <p><strong>Estoque final:</strong> <span>${item.totalStock}</span></p>
+          <p><strong>Valor investido:</strong> <span>${formatPrice(item.totalValue)}</span></p>
         </div>`,
     )
     .join("");
@@ -45,8 +45,8 @@ export function formatPlayers(players) {
       (p) => `
         <div class="report__grid report__grid--full report__grid--full--col">
           <h4>Jogador ${p.name}</h4>
-          <p><strong>Carga Semanal Total:</strong> ${p.totalLoad} pts</p>
-          <p><strong>Quantidade de Treinos:</strong> ${p.totalWorkouts}</p>
+          <p><strong>Carga Semanal Total:</strong> <span>${p.totalLoad} pts </span></p>
+          <p><strong>Quantidade de Treinos:</strong> <span>${p.totalWorkouts} </span></p>
         </div>`,
     )
     .join("");
@@ -64,30 +64,30 @@ export function formatLoadExtremes(obj) {
   };
 
   return `
-    <p><strong>Nome:</strong> ${obj.name}</p>
-    <p><strong>Posição:</strong> ${formatPositionName(obj.position)}</p>
-    <p><strong>Número de treinos:</strong> ${obj.totalWorkouts}</p>
+    <p><strong>Nome:</strong> <span> ${obj.name} </span></p>
+    <p><strong>Posição:</strong> <span> ${formatPositionName(obj.position)} </span></p>
+    <p><strong>Número de treinos:</strong> <span> ${obj.totalWorkouts} </span></p>
   `;
 }
 
 export function formatMostSalesSeller(obj) {
   return `
-    <p><strong>ID Vendedor:</strong> ${obj.sellerId}</p>
-    <p><strong>Valor total vendido:</strong> ${formatPrice(obj.totalValue)}</p>
+    <p><strong>ID Vendedor:</strong> <span>${obj.sellerId}</span></p>
+    <p><strong>Valor total vendido:</strong> <span>${formatPrice(obj.totalValue)}</span></p>
   `;
 }
 
 export function formatMostComissionsSeller(obj) {
   return `
-    <p><strong>ID Vendedor:</strong> ${obj.sellerId}</p>
-    <p><strong>Comissão total acumulada:</strong> ${formatPrice(obj.totalComission)}</p>
+    <p><strong>ID Vendedor:</strong> <span> ${obj.sellerId} </span></p>
+    <p><strong>Comissão total acumulada:</strong> <span> ${formatPrice(obj.totalComission)} </span></p>
   `;
 }
 
 export function formatOrdersExtreme(obj) {
   return `
-    <p><strong>Código:</strong> ${obj.id}</p>
-    <p><strong>Valor Total:</strong> ${formatPrice(obj.orderTotal)}</p>
+    <p><strong>Código:</strong> <span>${obj.id}</span></p>
+    <p><strong>Valor Total:</strong> <span>${formatPrice(obj.orderTotal)}</span></p>
   `;
 }
 
@@ -105,17 +105,17 @@ export function formatEmployeesExtreme(obj) {
   };
 
   return `
-    <p><strong>Código:</strong> ${obj.id}</p>
-    <p><strong>Categoria:</strong>  ${formatCategory(obj.category)}</span></p>
-    <p><strong>Turno:</strong> ${formatShift(obj.shift)}</span></p>
-    <p><strong>Valor Recebido:</strong> ${formatPrice(obj.finalWage)}</span></p>
+    <p><strong>Código:</strong> <span>${obj.id}</span></p>
+    <p><strong>Categoria:</strong>  <span>${formatCategory(obj.category)}</span></p>
+    <p><strong>Turno:</strong> <span>${formatShift(obj.shift)}</span></p>
+    <p><strong>Valor Recebido:</strong> <span>${formatPrice(obj.finalWage)}</span></p>
   `;
 }
 
 export function formatStockExtreme(obj) {
   return `
-    <p><strong>Código:</strong> ${obj.id}</p>
-    <p><strong>Valor:</strong>  ${formatPrice(obj.total)}</span></p>
+    <p><strong>Código:</strong> <span>${obj.id}</span></p>
+    <p><strong>Valor:</strong>  <span>${formatPrice(obj.total)}</span></p>
   `;
 }
 
@@ -129,10 +129,10 @@ export function formatResExtreme(obj) {
   };
 
   return `
-    <p><strong>Código: </strong> ${obj.id}</p>
-    <p><strong>Tipo: </strong>${formatRoomType(obj.roomType)}</p>
-    <p><strong>Temporada: </strong>${formatSeason(obj.season)}</p>
-    <p><strong>Hóspedes: </strong>${obj.guests}</p>
-    <p><strong>Valor: </strong>${formatPrice(obj.reservTotal)}</p>
+    <p><strong>Código: </strong> <span>${obj.id}</span></p>
+    <p><strong>Tipo: </strong><span>${formatRoomType(obj.roomType)}</span></p>
+    <p><strong>Temporada: </strong><span>${formatSeason(obj.season)}</span></p>
+    <p><strong>Hóspedes: </strong><span>${obj.guests}</span></p>
+    <p><strong>Valor: </strong><span>${formatPrice(obj.reservTotal)}</span></p>
   `;
 }

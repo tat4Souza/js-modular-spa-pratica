@@ -186,8 +186,8 @@ const renderProperties = [
           ({ key, title }) => `
           <div class="report__grid report__grid--half">
             <h4>${title}</h4>
-            <p><strong>Total de treinos: </strong>${sbp[key].total}</p>
-            <p><strong>Carga Média: </strong>${sbp[key].avg} pts</p>
+            <p><strong>Total de treinos: </strong> <span> ${sbp[key].total} </span></p>
+            <p><strong>Carga Média: </strong> <span> ${sbp[key].avg} pts </span></p>
           </div>
       `,
         )

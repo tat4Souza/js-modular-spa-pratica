@@ -3,6 +3,10 @@
   padding-bottom: 5rem;
 }
 
+.section-reports p > span {
+  font-family: "Prompt";
+}
+
 .report__header {
   text-align: center;
   align-items: center;
@@ -49,8 +53,9 @@
   }
 
   & > span {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     text-align: center;
+    font-family: "Prompt";
   }
 
   @media screen and (max-width: 52em) {
@@ -86,11 +91,6 @@
   }
 }
 
-.report__total {
-  font-size: 2rem !important;
-  text-transform: capitalize;
-}
-
 .report__title {
   margin-top: 2rem;
   grid-column: 1 / -1;
@@ -98,4 +98,9 @@
   font-size: 1.4rem;
   font-family: var(--font-uncial);
   padding: 0;
+}
+
+.report__total {
+  font-size: 2rem !important;
+  font-family: var(--font-uncial) !important;
 }

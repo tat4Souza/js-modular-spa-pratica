@@ -72,3 +72,7 @@ body {
   gap: 3rem;
   margin-bottom: 5rem;
 }
+
+::selection {
+  background-color: #4d131366;
+}
