@@ -1,6 +1,8 @@
 import {
   formatMostComissionsSeller,
   formatMostSalesSeller,
+  formatPriceDecimal,
+  formatReportTotal,
 } from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
@@ -143,7 +145,7 @@ function generateReport(list) {
 }
 
 const renderProperties = [
-  { htmlId: "rep-total", data: "total" },
+  { htmlId: "rep-total", data: "total", formatFunc: formatReportTotal },
   {
     htmlId: "rep-total-region",
     data: (rep) => rep.totalPerRegion,
@@ -159,7 +161,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
         <div class="report__grid report__grid--half">
-          <h4><span>R$</span> ${tpr[key]}</h4>
+          <h4><span>R$</span> ${formatPriceDecimal(tpr[key])}</h4>
           <span>${title}</span>
         </div>
       `,
@@ -180,7 +182,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
         <div class="report__grid report__grid--half">
-          <h4><span>R$</span> ${tpc[key]}</h4>
+          <h4><span>R$</span> ${formatPriceDecimal(tpc[key])}</h4>
           <span>${title}</span>
         </div>
       `,
@@ -202,6 +204,7 @@ const renderProperties = [
   {
     htmlId: "rep-comission-avg",
     data: "avgComission",
+    formatFunc: formatPriceDecimal,
   },
   {
     htmlId: "rep-comission-avg-reg",
@@ -218,7 +221,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
         <div class="report__grid report__grid--half">
-          <h4><span>R$</span> ${tpr[key]}</h4>
+          <h4><span>R$</span> ${formatPriceDecimal(tpr[key])}</h4>
           <span>${title}</span>
         </div>
       `,

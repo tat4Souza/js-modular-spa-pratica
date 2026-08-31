@@ -2,6 +2,22 @@ export function formatPrice(price) {
   return price.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 }
 
+export function formatPriceDecimal(value) {
+  const newVal = Number(value);
+
+  if (Number.isNaN(newVal)) return "0,00";
+
+  return new Intl.NumberFormat("pt-BR", {
+    style: "decimal",
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  }).format(newVal);
+}
+
+export function formatReportTotal(total) {
+  return `${total} entrada(s)`;
+}
+
 export function formatProductInfo(products) {
   if (!Array.isArray(products) || products.length === 0) {
     return "<p>Nenhum produto registrado.</p>";
@@ -29,7 +45,7 @@ export function formatPlayers(players) {
       (p) => `
         <div class="report__grid report__grid--full report__grid--full--col">
           <h4>Jogador ${p.name}</h4>
-          <p><strong>Carga Semanal Total:</strong> ${p.totalLoad}</p>
+          <p><strong>Carga Semanal Total:</strong> ${p.totalLoad} pts</p>
           <p><strong>Quantidade de Treinos:</strong> ${p.totalWorkouts}</p>
         </div>`,
     )

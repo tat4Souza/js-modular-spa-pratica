@@ -1,5 +1,7 @@
 import {
+  formatPriceDecimal,
   formatProductInfo,
+  formatReportTotal,
   formatStockExtreme,
 } from "../utils/formatFunctions.js";
 import {
@@ -114,7 +116,11 @@ function generateReport(list) {
 }
 
 const renderProperties = [
-  { htmlId: "rep-total", data: "total" },
+  {
+    htmlId: "rep-total",
+    data: "total",
+    formatFunc: formatReportTotal,
+  },
   {
     htmlId: "rep-final-stock",
     data: (rep) => rep.stockByType,
@@ -140,7 +146,7 @@ const renderProperties = [
   {
     htmlId: "rep-avg",
     data: "mediumPerOrder",
-    formatFunc: (mpo) => mpo.toFixed(2),
+    formatFunc: formatPriceDecimal,
   },
   {
     htmlId: "rep-high",
@@ -181,6 +187,6 @@ const renderProperties = [
   {
     htmlId: "rep-invested",
     data: "investedValue",
-    formatFunc: (i) => i.toFixed(2),
+    formatFunc: formatPriceDecimal,
   },
 ];

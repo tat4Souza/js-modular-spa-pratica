@@ -1,4 +1,8 @@
-import { formatResExtreme } from "../utils/formatFunctions.js";
+import {
+  formatPriceDecimal,
+  formatReportTotal,
+  formatResExtreme,
+} from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
   formSettingTemplate,
@@ -110,16 +114,16 @@ function generateReport(list) {
 }
 
 const renderProperties = [
-  { htmlId: "rep-total", data: "total" },
+  { htmlId: "rep-total", data: "total", formatFunc: formatReportTotal },
   {
     htmlId: "rep-avg",
     data: "mediumPerRes",
-    formatFunc: (mpr) => mpr.toFixed(2),
+    formatFunc: formatPriceDecimal,
   },
   {
     htmlId: "rep-avg-guest",
     data: "mediumPerGuest",
-    formatFunc: (mpg) => mpg.toFixed(2),
+    formatFunc: formatPriceDecimal,
   },
   {
     htmlId: "rep-total-type",
@@ -135,7 +139,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
           <div class="report__grid">
-            <h4><span>R$</span>${tbr[key]}</h4>
+            <h4><span>R$</span> ${formatPriceDecimal(tbr[key])}</h4>
             <span>${title}</span>
           </div>
       `,
@@ -157,7 +161,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
           <div class="report__grid">
-            <h4><span>R$</span>${tbs[key]}</h4>
+            <h4><span>R$</span> ${formatPriceDecimal(tbs[key])}</h4>
             <span>${title}</span>
           </div>
       `,

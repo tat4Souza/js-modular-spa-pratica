@@ -4,7 +4,11 @@ import {
   formSettingTemplate,
   handleFinishForms,
 } from "../utils/formTemplate.js";
-import { formatEmployeesExtreme } from "../utils/formatFunctions.js";
+import {
+  formatEmployeesExtreme,
+  formatPriceDecimal,
+  formatReportTotal,
+} from "../utils/formatFunctions.js";
 import {
   alterComponentVisibility,
   avgBy,
@@ -134,7 +138,7 @@ function generateReport(list) {
 }
 
 const renderProperties = [
-  { htmlId: "rep-total", data: "total" },
+  { htmlId: "rep-total", data: "total", formatFunc: formatReportTotal },
   {
     htmlId: "rep-avg",
     data: (rep) => rep.mediumWages,
@@ -149,7 +153,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
           <div class="report__grid">
-            <h4> <span>R$</span> ${mw[key].toFixed(2) ?? 0} </h4>
+            <h4> <span>R$</span> ${formatPriceDecimal(mw[key])} </h4>
             <span>${title}</span>
           </div>
       `,
@@ -182,7 +186,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
           <div class="report__grid report__grid--full">
-            <h4>${title}:</h4>
+            <h4>${title}%:</h4>
             <span class="report__total">${b[key]}</span>
           </div>
         `,

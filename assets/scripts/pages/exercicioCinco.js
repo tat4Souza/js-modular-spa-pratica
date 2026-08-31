@@ -1,4 +1,8 @@
-import { formatLoadExtremes, formatPlayers } from "../utils/formatFunctions.js";
+import {
+  formatLoadExtremes,
+  formatPlayers,
+  formatReportTotal,
+} from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
   formSettingTemplate,
@@ -127,7 +131,7 @@ function generateReport(list) {
 }
 
 const renderProperties = [
-  { htmlId: "rep-total", data: "total" },
+  { htmlId: "rep-total", data: "total", formatFunc: formatReportTotal },
   {
     htmlId: "rep-players",
     data: (rep) => rep.playersList,
@@ -158,7 +162,7 @@ const renderProperties = [
         .map(
           ({ key, title }) => `
           <div class="report__grid">
-            <h4>${sbt[key]}</h4>
+            <h4>${sbt[key]} pts</h4>
             <span>${title}</span>
           </div>
       `,
@@ -183,7 +187,7 @@ const renderProperties = [
           <div class="report__grid report__grid--half">
             <h4>${title}</h4>
             <p><strong>Total de treinos: </strong>${sbp[key].total}</p>
-            <p><strong>Carga Média: </strong>${sbp[key].avg}</p>
+            <p><strong>Carga Média: </strong>${sbp[key].avg} pts</p>
           </div>
       `,
         )
