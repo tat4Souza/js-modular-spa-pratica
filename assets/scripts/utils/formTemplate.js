@@ -14,7 +14,6 @@ export function formSettingTemplate(fieldsConfig, onSuccess) {
     e.preventDefault();
 
     const collectedData = {};
-    let hasEmptyField = false;
 
     for (const [key, config] of Object.entries(fieldsConfig)) {
       const field = document.getElementById(config.htmlId);
@@ -24,15 +23,17 @@ export function formSettingTemplate(fieldsConfig, onSuccess) {
         config.type === "checkbox" ? field.checked : field.value.trim();
 
       if (value === "") {
-        hasEmptyField = true;
+        showMessage(messageLabel, "Por favor, preencha todos os campos!");
+        return;
+      }
+
+      if (value !== "" && Number.isNaN(Number(value))) {
+        showMessage(messageLabel, "Valor digitado deve ser um número!");
+        console.log("Passou aqui");
+        return;
       }
 
       collectedData[key] = value;
-    }
-
-    if (hasEmptyField) {
-      showMessage(messageLabel, "Por favor, preencha todos os campos!");
-      return;
     }
 
     alterComponentVisibility(setContainer, regContainer);
