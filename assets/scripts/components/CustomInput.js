@@ -8,11 +8,12 @@ export class CustomInput extends HTMLElement {
     const optionsList = options
       ? options.split(",").map((opt) => opt.trim())
       : [];
+    const step = this.getAttribute("step") === "1" ? 1 : 0.01;
 
     const renderInputField = () => {
       switch (type) {
         case "number":
-          return `<input type="number" autocomplete="off" id="${inputId}" placeholder="${title}" />`;
+          return `<input type="number" step="${step}" autocomplete="off" id="${inputId}" placeholder="${title}" />`;
         case "select":
           const optionsHTML = optionsList
             .map(

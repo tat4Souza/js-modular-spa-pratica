@@ -27,12 +27,6 @@ export function formSettingTemplate(fieldsConfig, onSuccess) {
         return;
       }
 
-      if (value !== "" && Number.isNaN(Number(value))) {
-        showMessage(messageLabel, "Valor digitado deve ser um número!");
-        console.log("Passou aqui");
-        return;
-      }
-
       collectedData[key] = value;
     }
 
