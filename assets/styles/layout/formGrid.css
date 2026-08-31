@@ -31,12 +31,12 @@
   }
 }
 
-.ex__container:has(#settingsFormContainer),
+.ex__container:has(#registrationFormContainer.hideComponent),
 .section-reports {
   border-top: 0.8rem solid var(--red-light);
 }
 
-.ex__container:has(#registrationForm):has(.viewComponent) {
+.ex__container:has(#registrationFormContainer.viewComponent) {
   border: none;
 }
 
@@ -50,7 +50,7 @@
   }
 }
 
-.ex__container:has(#settingsFormContainer) .form__header,
+.ex__container:has(#settingsFormContainer:not(.hideComponent)) .form__header,
 .report__header {
   position: relative;
   background-color: transparent;
@@ -63,7 +63,7 @@
   padding: 3rem 2.6rem 2rem 2.6rem;
 }
 
-.ex__container:has(#registrationForm):has(.viewComponent) .form__header {
+#registrationFormContainer.viewComponent .form__header {
   background-color: var(--red-light);
   width: 100%;
   position: absolute;

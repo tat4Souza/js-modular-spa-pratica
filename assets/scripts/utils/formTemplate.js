@@ -60,12 +60,26 @@ export function formRegistrationTemplate(fieldsConfig, dataList) {
       const value =
         config.type === "checkbox" ? field.checked : field.value.trim();
 
-      if (config.required !== undefined && value === "") {
+      const isRequired = key === "id" || config.required !== undefined;
+      const isEmpty = config.type === "checkbox" ? !value : value === "";
+
+      if (isRequired && isEmpty) {
+        const fieldName = config.required || "id";
+
         showMessage(
           messageLabel,
-          `Por favor, preencha o campo de ${config.required}`,
+          `Por favor, preencha o campo de ${fieldName}`,
         );
         return;
+      }
+
+      if (config.rule && !isEmpty) {
+        const isValid = config.rule.cond(value);
+
+        if (!isValid) {
+          showMessage(messageLabel, config.rule.message);
+          return;
+        }
       }
 
       collectedData[key] = value;

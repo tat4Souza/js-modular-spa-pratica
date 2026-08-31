@@ -1,9 +1,6 @@
 import {
   formatMostComissionsSeller,
   formatMostSalesSeller,
-  formatPerRegion,
-  formatPrice,
-  formatSalesPerClient,
 } from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
@@ -75,13 +72,13 @@ function generateReport(list) {
       );
 
       if (existingSale) {
-        existingSale.totalComission += sale.comissionValue;
+        existingSale.totalComission += Number(sale.comissionValue);
         existingSale.totalValue += Number(sale.value);
         existingSale.sales += 1;
       } else {
         sellers.push({
           sellerId: sale.sellerId,
-          totalComission: sale.comissionValue,
+          totalComission: Number(sale.comissionValue),
           totalValue: Number(sale.value),
           sales: 1,
         });

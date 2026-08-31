@@ -1,7 +1,4 @@
 import {
-  formatAlerts,
-  formatByStock,
-  formatPrice,
   formatProductInfo,
   formatStockExtreme,
 } from "../utils/formatFunctions.js";
@@ -92,10 +89,10 @@ function generateReport(list) {
     ),
   };
 
-  const mediumPerOrder = avgBy(list, "price");
+  const mediumPerOrder = avgBy(list, "total");
 
-  const highestOrder = extremeBy(list, "finalStock");
-  const lowestOrder = extremeBy(list, "finalStock", "min");
+  const highestOrder = extremeBy(list, "total");
+  const lowestOrder = extremeBy(list, "total", "min");
 
   const alerts = {
     high: countBy(list, (o) => o.finalStock > 5000),

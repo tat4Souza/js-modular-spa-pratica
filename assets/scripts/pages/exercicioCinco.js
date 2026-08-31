@@ -1,9 +1,4 @@
-import {
-  formatLoadExtremes,
-  formatPlayers,
-  formatPosition,
-  formatWorkoutType,
-} from "../utils/formatFunctions.js";
+import { formatLoadExtremes, formatPlayers } from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
   formSettingTemplate,
@@ -27,7 +22,13 @@ export function init() {
       position: { htmlId: "work-pos" },
       type: { htmlId: "work-type" },
       duration: { htmlId: "work-dur" },
-      intensity: { htmlId: "work-inten" },
+      intensity: {
+        htmlId: "work-inten",
+        rule: {
+          cond: (val) => val >= 1 && val <= 10,
+          message: "Intensidade precisar estar entre 1 e 10",
+        },
+      },
     },
     calculate: (data) => ({
       ...data,

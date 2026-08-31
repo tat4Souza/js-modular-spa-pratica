@@ -1,8 +1,4 @@
-import {
-  formatOrdersExtreme,
-  formatOrdersRegion,
-  formatPrice,
-} from "../utils/formatFunctions.js";
+import { formatOrdersExtreme } from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
   formSettingTemplate,
@@ -20,7 +16,7 @@ export function init() {
 
   const registrationConfig = {
     fields: {
-      id: { htmlId: "ord-id" },
+      id: { htmlId: "ord-id", required: "id" },
       region: { htmlId: "ord-region" },
       distance: { htmlId: "ord-distance" },
       quantity: { htmlId: "ord-qtd-parts" },
@@ -39,7 +35,7 @@ export function init() {
   };
 
   formSettingTemplate(setupConfig, (data) => {
-    gasPrice = parseFloat(data.gas);
+    gasPrice = Number(data.gas);
   });
 
   formRegistrationTemplate(registrationConfig, ordersList);

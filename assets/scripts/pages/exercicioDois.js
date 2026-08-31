@@ -4,14 +4,7 @@ import {
   formSettingTemplate,
   handleFinishForms,
 } from "../utils/formTemplate.js";
-import {
-  formatCategory,
-  formatEmployeesAvg,
-  formatEmployeesBonus,
-  formatEmployeesExtreme,
-  formatPrice,
-  formatShift,
-} from "../utils/formatFunctions.js";
+import { formatEmployeesExtreme } from "../utils/formatFunctions.js";
 import {
   alterComponentVisibility,
   avgBy,
@@ -34,7 +27,14 @@ export function init() {
       hours: { htmlId: "emp-hours" },
       category: { htmlId: "emp-cat" },
       shift: { htmlId: "emp-shift" },
-      bonus: { htmlId: "emp-perf", required: "avaliação" },
+      bonus: {
+        htmlId: "emp-perf",
+        required: "avaliação",
+        rule: {
+          cond: (val) => Number(val) >= 0 && Number(val) <= 10,
+          message: "A avaliação deve ser um número de 0 a 10",
+        },
+      },
       food: { htmlId: "emp-food" },
     },
     calculate: (data) => ({
@@ -51,7 +51,7 @@ export function init() {
   };
 
   formSettingTemplate(setupConfig, (data) => {
-    minWageValue = parseFloat(data.minWage);
+    minWageValue = Number(data.minWage);
   });
 
   formRegistrationTemplate(registrationConfig, employeesList);

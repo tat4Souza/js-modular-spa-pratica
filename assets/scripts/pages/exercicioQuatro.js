@@ -1,9 +1,4 @@
-import {
-  formatResSeason,
-  formatPrice,
-  formatResRoom,
-  formatResExtreme,
-} from "../utils/formatFunctions.js";
+import { formatResExtreme } from "../utils/formatFunctions.js";
 import {
   formRegistrationTemplate,
   formSettingTemplate,
@@ -74,7 +69,7 @@ function calcReserv(b, rt, s, bf, bfv, g, d) {
 
 function generateReport(list) {
   function sumTypesBy(selector, option) {
-    return sumBy(list, (r) => r[selector] === option && r.reservTotal);
+    return sumBy(list, (r) => (r[selector] === option ? r.reservTotal : 0));
   }
 
   const totalByRoom = {
